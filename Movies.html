@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>NiceFlix</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:black;
+  margin: 0;
+  padding: 3em 1em;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.8em;
+  color: grey;
+  line-height: 1.4;
+}
+
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 90%;
+  grid-gap: 1em;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 2em 1em;
+  background: white;
+}
+@media all and (min-width: 600px) {
+  .grid {
+    grid-auto-flow: initial;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 20em));
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
+}
+.grid__figure {
+  display: grid;
+  grid-template-rows: 30em 4fr;
+  grid-gap: 2.5em;
+}
+.grid__figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.star{
+          color: goldenrod;
+          font-size: 1.0rem;
+          padding: 0 0.2rem; /* space out the stars */
+        }
+        .star::before{
+          content: '\2606';    /* star outline */
+          cursor: pointer;
+        }
+        .star.rated::before{
+          /* the style for a selected star */
+          content: '\2605';  /* filled star */
+        }
+        
+        .stars{
+            counter-reset: rateme 0;   
+            font-size: 1.0rem;
+            font-weight: 200;
+        }
+        .star.rated{
+            counter-increment: rateme 1;
+        }
+        .stars::after{
+            content: counter(rateme) '/5';
+        }
+
+h3
+{
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="HomePage2.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+      <a href="AboutUs.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+      <a href="Tickets.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TICKETS</a>
+      <a href="ContactUs.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT US</a>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="Movies.html" class="w3-bar-item w3-button">Movies</a>
+          <a href="Login.html" class="w3-bar-item w3-button">Login</a>
+          <a href="Registration.html" class="w3-bar-item w3-button">SignUp</a>
+        </div>
+      </div>
+      <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    </div>
+  </div>
+      
+
+<ul class="grid">
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=Fk3NhzNqAuY&">
+      <img src="image/2067.jpg" alt="">
+    </a>
+      <figcaption><h3><b>2067</b> </h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('2067').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+    </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=fl2r3Fwxz_o">
+      <img src="image/Artemisfowl.jpg" alt="">
+    </a>
+      <figcaption><h3><b> Artemis Fowl</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('artemis').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c">
+      <img src="image/Avengers.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Avengers: Endgame</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('avengers').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=-FZ-pPFAjYY">
+      <img src="image/TheBatman.png" alt="">
+    </a>
+      <figcaption><h3><b>The Batman</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('batman').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=QFxN2oDKk0E">
+      <img src="image/Godzilla King of the Monsters.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Godzilla</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('godzilla').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+   
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=zAGVQLHvwOY">
+      <img src="image/Joker.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Joker</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('joker').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=4vWg5yJuWfs">
+      <img src="image/Rambo Last Blood.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Rambo: Last Blood</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('rambo').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=YqNYrYUiMfg">
+      <img src="image/1917.jpg" alt="">
+    </a>
+      <figcaption><h3><b>1917</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('1917').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=XRrIs22plz0">
+      <img src="image/CripCamp.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Crip Camp</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('crip').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=_qyw6LC5pnE">
+      <img src="image/Fast and furious 9.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Fast & Furious (F9)</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('f9').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=W-0o3bNH0oc">
+      <img src="image/Godzilla vs kong.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Godzilla vs. Kong</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('godzillavskong').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=8vmPwKvn8MY">
+      <img src="image/Venom let there be carnage.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Venom</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('venom').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=jLMBLuGJTsA">
+      <img src="image/Morbius.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Morbius</b></h3></figcaption>
+
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('morbius').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=BIhNsAtPbPI">
+      <img src="image/No time to die.jpg" alt="">
+    </a>
+      <figcaption><h3><b>No Time to Die</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('007').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=5zdBG-iGfes">
+      <img src="image/The kings man.jpg" alt="">
+    </a>
+      <figcaption><h3><b>King's Man</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('kings').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+  <li>
+    <figure class="grid__figure">
+      <a href="https://www.youtube.com/watch?v=BzOl5DpWO8k">
+      <img src="image/Bloodshot.jpg" alt="">
+    </a>
+      <figcaption><h3><b>Bloodshot</b></h3></figcaption>
+      <button class="w3-button w3-red w3-margin-bottom" onclick="document.getElementById('bloodshot').style.display='block'">Read More</button>
+      <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+    </figure>
+    <!-- alternate codepen version https://codepen.io/mad-d/pen/aJMPWr?editors=0010 -->
+    <div class="stars" data-rating="3">
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+      <span class="star">&nbsp;</span>
+  </div>
+  </li>
+</ul>
+
+      <!-- Ticket Modal -->
+      <div id="ticketModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4">
+          <header class="w3-container w3-teal w3-center w3-padding-32"> 
+            <span onclick="document.getElementById('ticketModal').style.display='none'" 
+           class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+            <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
+          </header>
+          <div class="w3-container">
+            <p><label><i class="fa fa-shopping-cart"></i> Tickets, 35AED per person</label></p>
+            <input class="w3-input w3-border" type="text" placeholder="How many?">
+            <p><label><i class="fa fa-user"></i> Send To</label></p>
+            <input class="w3-input w3-border" type="text" placeholder="Enter email">
+            <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
+            <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+            <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+          </div>
+        </div>
+      </div>
+
+
+<!-- Read More BloodShot -->
+<div id="bloodshot" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('bloodshot').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Bloodshot</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Vin Diesel, Eiza González, Sam Heughan</label></p>
+      <p><label><i class="fa fa-user"></i> Dave Wilson</label></p>
+      <p><label> Genre: Action, Sci Fi, Drama</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Bloodshot is a 2020 American superhero film based on the Valiant Comics character of the same name. It is intended to be the first installment in a series of films set within a Valiant Comics shared cinematic universe. Directed by David S. F. </label></p>
+      <a href="https://www.youtube.com/watch?v=BzOl5DpWO8k">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('bloodshot').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Kings Man -->
+<div id="kings" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('kings').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>The Kings Man</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Gemma Arterton, Aaron Taylor-Johnson, Charles Dance</label></p>
+      <p><label><i class="fa fa-user"></i> Matthew Vaughn</label></p>
+      <p><label>Genre: Action, Comedy, Historical Drama, Spy, Adventure</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> The King's Man is an upcoming period spy action comedy film directed by Matthew Vaughn, who wrote the screenplay with Karl Gajdusek. </label></p>
+      <a href="https://www.youtube.com/watch?v=5zdBG-iGfes">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('kings').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More No Time To Die -->
+<div id="007" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('007').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>No Time To Die</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Ana de Armas, Daniel Craig, Léa Seydoux</label></p>
+      <p><label><i class="fa fa-user"></i> Cary Joji Fukunaga</label></p>
+      <p><label>Genre: Action, Comedy, Historical Drama, Spy, Adventure</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> No Time to Die is a forthcoming spy film and the twenty-fifth instalment in the James Bond film series produced by Eon Productions. The film features Daniel Craig in his fifth and final outing as the fictional British MI6 agent James Bond.</label></p>
+      <a href="https://www.youtube.com/watch?v=BIhNsAtPbPI">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('007').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Read More Morbius -->
+<div id="morbius" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('morbius').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Morbius</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Matt Smith, Adria Arjona, Jared Leto</label></p>
+      <p><label><i class="fa fa-user"></i> Daniel Espinosa</label></p>
+      <p><label>Genre: Horror, Superhero, Thriller, Action, Adventure, Drama, Fantasy, Science fiction</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Morbius is an upcoming American superhero film based on the Marvel Comics character of the same name, produced by Columbia Pictures in association with Marvel. Distributed by Sony Pictures Releasing, it is intended to be the second film in the Sony Pictures Universe of Marvel Characters.</label></p>
+      <a href="https://www.youtube.com/watch?v=jLMBLuGJTsA">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('morbius').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More venom -->
+<div id="venom" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('venom').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Venom</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Tom Hardy, Michelle Williams, Woody Harrelson</label></p>
+      <p><label><i class="fa fa-user"></i> Andy Serkis</label></p>
+      <p><label>Genre: Horror, Superhero, Comedy, Adventure</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Venom: Let There Be Carnage is an upcoming American superhero film based on the Marvel Comics character Venom, produced by Columbia Pictures in association with Marvel and Tencent Pictures.</label></p>
+      <a href="https://www.youtube.com/watch?v=8vmPwKvn8MY">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('venom').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Godzilla vs Kong -->
+<div id="godzillavskong" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('godzillavskong').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Godzilla Vs Kong</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Alexander Skarsgård, Millie Bobby Brown, Julian Dennison</label></p>
+      <p><label><i class="fa fa-user"></i> Adam Wingard</label></p>
+      <p><label>Genre: Action, Science fiction, Thriller, Monster, Fantasy, Drama</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> The epic next chapter in the cinematic Monsterverse pits two of the greatest icons in motion picture history against one another - the fearsome Godzilla and the mighty Kong - with humanity caught in the balance.</label></p>
+      <a href="https://www.youtube.com/watch?v=W-0o3bNH0oc">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('godzillavskong').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Fast & Furious 9 -->
+<div id="f9" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('f9').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Fast & Furious 9</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Charlize Theron, Vin Diesel, Tyrese Gibson</label></p>
+      <p><label><i class="fa fa-user"></i> Justin Lin</label></p>
+      <p><label>Genre: Action, Thriller, Adventure, Crime film</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> F9 (alternatively known as Fast & Furious 9) is an upcoming American action film directed by Justin Lin from a screenplay by Daniel Casey and Lin. It is the sequel to The Fate of the Furious (2017), the ninth main installment, and the tenth full-length film released overall in the Fast & Furious franchise.</label></p>
+      <a href="https://www.youtube.com/watch?v=_qyw6LC5pnE">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('f9').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Crip Camp -->
+<div id="crip" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('crip').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Crip Camp</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Larry Allison, Dennis Billups, William Bronston</label></p>
+      <p><label><i class="fa fa-user"></i> James Lebrecht, Nicole Newnham</label></p>
+      <p><label>Genre: Documentary</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Crip Camp: A Disability Revolution is a 2020 American documentary film directed, written and co-produced by Nicole Newnham and James LeBrecht. Barack and Michelle Obama serve as executive producers under their Higher Ground Productions banner.</label></p>
+      <a href="https://www.youtube.com/watch?v=XRrIs22plz0">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('crip').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More 1917 -->
+<div id="1917" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('1917').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>1917</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Dean-Charles Chapman, George MacKay, Daniel Mays</label></p>
+      <p><label><i class="fa fa-user"></i> Sam Mendes</label></p>
+      <p><label>Genre: War, Epic, Historical drama, History, Drama, Action, Narrative</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> 1917 is a 2019 British war film directed and produced by Sam Mendes, and written by Mendes and Krysty Wilson-Cairns. The film stars George MacKay and Dean-Charles Chapman, with Mark Strong, Andrew Scott, Richard Madden, Claire Duburcq, Colin Firth, and Benedict Cumberbatch in supporting roles.</label></p>
+      <a href="https://www.youtube.com/watch?v=YqNYrYUiMfg">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('1917').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Rambo: Last Blood -->
+<div id="rambo" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('rambo').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Rambo: Last Blood</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Sylvester Stallone, Paz Vega, Sergio Peris-Mencheta</label></p>
+      <p><label><i class="fa fa-user"></i> Adrian Grunberg</label></p>
+      <p><label>Genre: Action, Thriller, Western</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Rambo: Last Blood is a 2019 American action film directed by Adrian Grünberg. The screenplay, co-written by Matthew Cirulnick and Sylvester Stallone (from a story by Dan Gordon and Stallone), is based on the character John Rambo created by author David Morrell for his novel First Blood.</label></p>
+      <a href="https://www.youtube.com/watch?v=4vWg5yJuWfs">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('rambo').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Joker -->
+<div id="joker" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('joker').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Joker</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Joaquin Phoenix, Robert De Niro, Zazie Beetz</label></p>
+      <p><label><i class="fa fa-user"></i> Todd Phillips</label></p>
+      <p><label>Genre: Drama, Thriller, Crime film, Psychological thriller</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Joker is a 2019 American psychological thriller film directed and produced by Todd Phillips, who co-wrote the screenplay with Scott Silver. The film, based on DC Comics characters, stars Joaquin Phoenix as the Joker and provides an alternative origin story for the character.</label></p>
+      <a href="https://www.youtube.com/watch?v=zAGVQLHvwOY">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('joker').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Godzilla -->
+<div id="godzilla" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('godzilla').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Godzilla: King of Monsters</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Kyle Chandler, Vera Farmiga, Millie Bobby Brown</label></p>
+      <p><label><i class="fa fa-user"></i> Michael Dougherty</label></p>
+      <p><label>Genre: Action, Science fiction, Monster, Fantasy</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Godzilla: King of the Monsters is a 2019 monster film directed by Michael Dougherty and co-written by Dougherty with Zach Shields.</label></p>
+      <a href="https://www.youtube.com/watch?v=QFxN2oDKk0E">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('godzilla').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More The Batman -->
+<div id="batman" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('batman').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>The Batman</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Robert Pattinson, Colin Farrell, Andy Serkis</label></p>
+      <p><label><i class="fa fa-user"></i> Matt Reeves</label></p>
+      <p><label>Genre: Action, Drama, Superhero, Crime film</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> The Batman is an upcoming American superhero film based on the DC Comics character of the same name. Produced by DC Films and distributed by Warner Bros. Pictures, it is a reboot of the Batman film franchise. The film is directed by Matt Reeves, who wrote the screenplay with Peter Craig.</label></p>
+      <a href="https://www.youtube.com/watch?v=-FZ-pPFAjYY">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('batman').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Avengers -->
+<div id="avengers" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('avengers').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Avengers: Endgame</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Robert Downey Jr., Chris Evans, Mark Ruffalo</label></p>
+      <p><label><i class="fa fa-user"></i> Anthony Russo, Joe Russo</label></p>
+      <p><label>Genre: Action, Superhero, Fantasy, Adventure, Science fiction</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe. </label></p>
+      <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('avengers').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More Artemis Fowl -->
+<div id="artemis" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('artemis').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>Artemis Fowl</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Ferdia Shaw, Lara McDonnell, Josh Gad</label></p>
+      <p><label><i class="fa fa-user"></i> Kenneth Branagh</label></p>
+      <p><label>Genre: Young adult fiction, Fantasy Fiction</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> Artemis Fowl is a 12-year-old genius and descendant of a long line of criminal masterminds. He soon finds himself in an epic battle against a race of powerful underground fairies who may be behind his father's disappearance.</label></p>
+      <a href="https://www.youtube.com/watch?v=fl2r3Fwxz_o">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('artemis').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Read More 2067 -->
+<div id="2067" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-black w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('2067').style.display='none'" 
+     class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-film" aria-hidden="true"></i>2067</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><i class="fa fa-star" aria-hidden="true"></i> Kodi Smit-McPhee, Ryan Kwanten, Sana'a Shaik</label></p>
+      <p><label><i class="fa fa-user"></i> Seth Larney</label></p>
+      <p><label>Genre: Science fiction, Thriller</label></p>
+      <p><label><i class="fa fa-file-text" aria-hidden="true"></i> When Earth's air becomes unbreathable, a message from the future sends a man on a dangerous mission to an unknown world to save the human race.</label></p>
+      <a href="https://www.youtube.com/watch?v=Fk3NhzNqAuY&">
+      <button class="w3-button w3-block w3-yellow w3-padding-16 w3-section w3-right">Watch Trailer <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+    </a>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('2067').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right"><a href="ContactUs.html" class="w3-text-blue">Need help?</a></p>
+    </div>
+  </div>
+</div>
+
+
+    <!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Copyrights © <a href="HomePage2.html" target="_blank">NiceFlix</a></p>
+</footer>
+
+<script>
+      
+  //initial setup
+  document.addEventListener('DOMContentLoaded', function(){
+      let stars = document.querySelectorAll('.star');
+      stars.forEach(function(star){
+          star.addEventListener('click', setRating); 
+      });
+      
+      let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+      let target = stars[rating - 1];
+      target.dispatchEvent(new MouseEvent('click'));
+  });
+
+  function setRating(ev){
+      let span = ev.currentTarget;
+      let stars = document.querySelectorAll('.star');
+      let match = false;
+      let num = 0;
+      stars.forEach(function(star, index){
+          if(match){
+              star.classList.remove('rated');
+          }else{
+              star.classList.add('rated');
+          }
+          //are we currently looking at the span that was clicked
+          if(star === span){
+              match = true;
+              num = index + 1;
+          }
+      });
+      document.querySelector('.stars').setAttribute('data-rating', num);
+  }
+  
+</script>
+</body>
+</html>
